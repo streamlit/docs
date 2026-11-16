@@ -7,7 +7,7 @@ keywords: LLM apps, conversational apps, chat applications, chat interfaces, res
 
 # Build LLM apps
 
-Build AI assistants right into your data apps, with chat, streaming responses, and step-by-step progress. Connect them to any model, or to Cortex AI in Snowflake. Your apps can also serve other AI agents as tools over MCP. For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
+Build AI assistants right into your data apps, answering questions over your data. Streamlit has chat with [`st.chat_input`](/develop/api-reference/chat/st.chat_input) and [`st.chat_message`](/develop/api-reference/chat/st.chat_message), streaming responses with [`st.write_stream`](/develop/api-reference/write-magic/st.write_stream), step-by-step progress with [`st.status`](/develop/api-reference/status/st.status) and [`st.expander`](/develop/api-reference/layout/st.expander) (`type="step"` or `type="compact"`), and feedback on answers with [`st.feedback`](/develop/api-reference/widgets/st.feedback). Connect them to any model or agent framework, or to Cortex AI in Snowflake. Your apps can also serve other AI agents as tools over MCP. For details, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
 <TileContainer layout="list">
 

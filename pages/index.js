@@ -92,7 +92,9 @@ export default function Home({ window, menu }) {
               <Tile size="half" background="unset" color="unset" dark={{ background: "unset", color: 'white', border_color: 'gray-90' }} border_color="gray-40" img="/logo.svg" title="Feature title" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend a facilisis sagittis, vitae nibh massa in facilisis et. Pretium eget non cursus purus tempus porta sodales." link="/tutorials/get-started" />
             </TileContainer> */}
 
-            <H2 className="no-b-m">See what teams build</H2>
+            <H2 className="no-b-m">
+              Dashboards, forecasting, and workflow apps
+            </H2>
 
             <TileContainer>
               <RefCard

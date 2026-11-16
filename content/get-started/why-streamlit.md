@@ -7,7 +7,7 @@ keywords: why streamlit, agent-native, data apps, dashboards, forecasting apps, 
 
 # Why Streamlit
 
-**Generating an app is cheap. Owning it isn't.** When your team's analysis becomes something colleagues use every week, such as the forecast someone asks to rerun every Monday, or a report people should be able to act on, it needs to be an app. A coding agent can generate a first version in minutes. But most stacks then leave you owning a frontend, a backend, and an API, with numbers that have to stay right as the logic changes. And as one app becomes hundreds, every one of them has to stay secure, accessible, and up to date.
+**Generating an app is cheap. Owning it isn't.** When your team's analysis becomes something colleagues use every week, such as the forecast someone asks to rerun every Monday, or a report people should be able to act on, it needs to be an app. A coding agent can generate one in minutes. But most stacks then leave you owning a frontend, a backend, and an API, and the numbers that run through them. And as one app becomes hundreds, every one of them has to stay secure, accessible, and up to date.
 
 Streamlit is the agent-native data app framework: the open-source Python framework for data apps and dashboards, made for people and agents, in code your team can read. It keeps the cost of owning apps low:
 
@@ -25,7 +25,7 @@ Streamlit is also the No. 1 Python framework for data apps and dashboards. [More
 
 ## What teams build
 
-Teams get the most out of Streamlit in three areas: dashboards, forecasting apps, and workflow apps. Picture a sales manager who sees margin fall on a dashboard, asks an agent to compare three price scenarios with Finance's forecasting app, and approves the change in a workflow app. Streamlit is also great for AI and chat apps over your data, ML and model tools, and internal data tools.
+Teams get the most out of Streamlit in three areas: dashboards, forecasting apps, and workflow apps. Picture a sales manager who sees margin fall on a dashboard, asks an agent to compare three price scenarios with Finance's forecasting app, and approves the change in a workflow app. Streamlit is also great for AI chat and agent apps over your data, ML and model tools, and internal data tools. See [Can I build an AI assistant into my app?](#can-i-build-an-ai-assistant-into-my-app)
 
 ### Dashboards
 
@@ -35,7 +35,7 @@ For teams on Power BI or Tableau, move your dashboards to Streamlit, and moderni
 
 <Cloud name="advanced-dashboard-demo" height="640px" />
 
-- Try the demo: [advanced-dashboard-demo.streamlit.app](https://advanced-dashboard-demo.streamlit.app/)
+- Try the demo: [Dashboard demo](https://advanced-dashboard-demo.streamlit.app/)
 - Key features: lazy-loading [`st.dataframe`](/develop/api-reference/data/st.dataframe), `refresh_mode="background"` for [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data), chart and table selections for cross-filtering, widgets bound to the URL with `bind="query-params"`, and [`st.grid`](/develop/api-reference/layout/st.grid) for responsive layouts. To learn more, see [Build advanced dashboards](/develop/concepts/design/dashboards).
 
 ### Forecasting apps
@@ -44,7 +44,7 @@ Forecasts with what-if levers, scenario planning, pricing and demand simulators,
 
 <Cloud name="apps-that-compute-demo" height="640px" />
 
-- Try the demo: [apps-that-compute-demo.streamlit.app](https://apps-that-compute-demo.streamlit.app/)
+- Try the demo: [Forecasting app demo](https://apps-that-compute-demo.streamlit.app/)
 - Key features: [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) for expensive computations and models, [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) to rerun only the part of the page that changed, and [chat elements](/develop/api-reference/chat) for AI assistants inside your app.
 
 ### Workflow apps
@@ -53,7 +53,7 @@ Approving what an AI agent proposes, review and approval queues, forecast sign-o
 
 <Cloud name="apps-that-act-demo" height="640px" />
 
-- Try the demo: [apps-that-act-demo.streamlit.app](https://apps-that-act-demo.streamlit.app/)
+- Try the demo: [Workflow app demo](https://apps-that-act-demo.streamlit.app/)
 - Key features: [`st.data_editor`](/develop/api-reference/data/st.data_editor) for editable tables, [`st.form`](/develop/api-reference/execution-flow/st.form) to batch input, [`st.dialog`](/develop/api-reference/execution-flow/st.dialog) for confirmations and side drawers, and [`st.connection`](/develop/api-reference/connections/st.connection) to write decisions back. To learn more, see [Edit and write back data](/develop/concepts/design/writeback).
 
 ## Built for coding agents
@@ -85,7 +85,7 @@ A custom stack, such as React or Next.js with a Python API, is free to generate 
 | Upgrades                 | Bump one version: every app improves and keeps running for years                                                                                                        | Dependency and framework migrations per app                                                                           |
 | Accessibility            | Targets WCAG 2.2 Level A and AA for its commands and default themes, with a published audit                                                                             | Solved again, or not, in every app                                                                                    |
 | Design                   | Opinionated on design: one shared brand theme, and the same interaction patterns in every app                                                                           | Every app, and every agent run, brings its own layout, date pickers, tables, and menus                                |
-| Testing                  | Built-in headless testing with `AppTest`                                                                                                                                | A browser-based test setup per app                                                                                    |
+| Testing                  | Built-in headless testing with [`AppTest`](/develop/concepts/app-testing)                                                                                               | A browser-based test setup per app                                                                                    |
 | Agent access             | Any app can serve agents over MCP, through its own caches and partial reruns, with no more access than the browser                                                      | A separate API or MCP server per app, built, secured, and kept in sync                                                |
 | Bespoke UI               | [Custom components](/develop/concepts/custom-components) in React or any frontend framework, and custom routes through [`st.App`](/develop/api-reference/server/st.app) | Unlimited                                                                                                             |
 | Best for                 | Data apps, dashboards, internal tools, and AI apps over your data                                                                                                       | Products where the UI itself is the product                                                                           |
@@ -108,16 +108,16 @@ For the dashboards your teams rely on in Power BI, Tableau, Looker, or Qlik, mov
 - **Agents can ask your dashboards.** An assistant sets the filters and reads the numbers through the dashboard's own logic, instead of guessing at the warehouse schema.
 - **Open source.** No per-seat licenses. You pay for the compute you use.
 
-| Dimension           | A BI tool                                     | Streamlit                                                                        |
-| ------------------- | --------------------------------------------- | -------------------------------------------------------------------------------- |
-| What a dashboard is | A report in a tool-specific format            | Python code in your repository                                                   |
-| Logic               | A formula or modeling language                | Python and SQL, with your existing models and libraries, for forecasts and AI    |
-| Taking action       | Limited data entry                            | Editable tables, forms, approvals, and writeback, validated by your Python logic |
-| Who builds it       | Analysts in a visual editor                   | Anyone, through a coding agent, reviewed by the data team                        |
-| Change management   | Mostly published from a visual editor         | Pull requests, review, and tests                                                 |
-| Agent questions     | The vendor's own assistant                    | Any MCP client, such as Claude or ChatGPT                                        |
-| Cost                | Per-seat licenses                             | Open source; pay for compute                                                     |
-| Best for            | Drag-and-drop self-service, paginated reports | The dashboards that matter most, with logic and actions                          |
+| Dimension           | A BI tool                                              | Streamlit                                                                                                         |
+| ------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| What a dashboard is | A report in a tool-specific format                     | Python code in your repository                                                                                    |
+| Logic               | A formula or modeling language                         | Python and SQL, with your existing models and libraries, for forecasts and AI                                     |
+| Taking action       | Built mainly for reading, with writeback in some tools | Editable tables, forms, and approvals, with writeback validated by the same Python code that produced the numbers |
+| Who builds it       | Analysts in a visual editor                            | Anyone, through a coding agent, reviewed by the data team                                                         |
+| Change management   | Mostly published from a visual editor                  | Pull requests, review, and tests                                                                                  |
+| Agent questions     | The vendor's own assistant                             | Any MCP client, such as Claude or ChatGPT                                                                         |
+| Cost                | Per-seat licenses                                      | Open source; pay for compute                                                                                      |
+| Best for            | Drag-and-drop self-service, paginated reports          | The dashboards that matter most, with logic and actions                                                           |
 
 Treat a move as a modernization, not a one-to-one copy:
 
@@ -134,18 +134,18 @@ A chat report is a snapshot. An app is what your team relies on. Most dashboards
 
 ## Ready for the enterprise
 
-Streamlit is free on the logic and opinionated on the design. Developers write any business logic in plain Python, with any library, data source, or model. Security and platform teams review the framework and its shared controls, such as the interface, sign-in, security defaults, and upgrades, once for hundreds of apps. Each app's data access, business rules, and writeback still get their own review, and that review is small.
+Streamlit is free on the logic and opinionated on the design. Developers write any business logic in plain Python, with any library, data source, or model. Platform and security teams review the framework and its shared controls, such as the interface, sign-in, security defaults, and upgrades, once. So each app's review covers only its own data access, rules, and writeback.
 
 - **Stable for years.** Breaking changes are extremely rare, so apps keep running on new releases for years, and every upgrade brings them new features, performance improvements, and security fixes.
 - **Your brand, one experience.** [Theme Streamlit](/develop/concepts/configuration/theming) to your brand once, with your colors, fonts, chart palettes, and spacing, and share that theme across all your apps. Filtering, sorting, editing, and navigating work the same way in every app.
 - **Secure by default, maintained for you.** Static security analysis runs on every change and every week. Streamlit's own dependencies, including its entire web frontend, are checked for known vulnerabilities daily, and fixes ship in regular releases. Data access runs on the server, so credentials never reach the browser. Protection against cross-site request forgery is on, and [`st.html`](/develop/api-reference/text/st.html) runs no scripts unless you opt in. Your app's own Python packages stay yours to manage. Researchers report vulnerabilities through [Snowflake's HackerOne program](https://hackerone.com/snowflake?type=team).
-- **Agent access under the app's own rules.** An agent gets no more than the app gives a person in the browser: the same pages, widgets, and data. It changes data only through the app's own buttons and forms, so your Python validation and writeback logic apply. Identity comes from your deployment's trusted headers, so an agent sees what that user may see. Without identity, the agent's session is anonymous. Requests from web pages are refused unless their origin is on the app's allow-list. The agent API is experimental and off by default, and one setting turns it on for an app. To learn more, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access#security).
-- **Accessible by default.** Streamlit targets WCAG 2.2 Level A and AA for its commands and default themes, and publishes an [ongoing audit](https://github.com/streamlit/streamlit/blob/develop/wiki/accessibility-wcag.md), known gaps included. WCAG 2.2 is the newest version of the standard that Section 508 and EN 301 549 build on. Every app gets page landmarks, keyboard and screen-reader support, and visible focus indicators. Use the `alt` parameter to describe images, charts, maps, and tables. Conformance is measured for the app you ship, so your content, such as alt text and custom colors, matters too.
+- **Agent access under the app's own rules.** An agent gets no more than the app gives a person in the browser: the same pages, widgets, and data. It changes data only through the app's own buttons and forms, so your Python validation and writeback logic apply. Identity comes from your deployment's trusted headers ([`server.trustedUserHeaders`](/develop/api-reference/configuration/config.toml#server)), so an agent sees what that user may see. Without identity, the agent's session is anonymous. Requests from web pages are refused unless their origin is on the app's allow-list ([`server.corsAllowedOrigins`](/develop/api-reference/configuration/config.toml#server)). The agent API is experimental and off by default, and one setting turns it on for an app ([`server.enableAgentApi`](/develop/api-reference/configuration/config.toml#server)). To learn more, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access#security).
+- **Accessible by default.** Streamlit targets WCAG 2.2 Level A and AA for its commands and default themes, and publishes an [ongoing audit](https://github.com/streamlit/streamlit/blob/develop/wiki/accessibility-wcag.md), known gaps included. WCAG 2.2 is the newest version of the standard that Section 508 and EN 301 549 build on. Every app gets keyboard and screen-reader support, page landmarks, and visible focus indicators. Use the `alt` parameter to describe images, charts, maps, and tables. Conformance is measured for the app you ship, so your content, such as alt text and custom colors, matters too.
 - **Escape hatches.** Add bespoke screens as [custom components](/develop/concepts/custom-components). Add your own API routes, middleware, and startup hooks with [`st.App`](/develop/api-reference/server/st.app), or mount the app into an existing FastAPI or Starlette service.
 
 ## Best on Snowflake
 
-Streamlit is Snowflake's native framework for data apps. Snowflake's coding agent, CoCo, builds Streamlit apps from a request in plain words, with the `developing-with-streamlit` skill bundled. In [Streamlit in Snowflake](/deploy/snowflake), apps run inside Snowflake, so your data stays on the platform under Snowflake's access controls. An app runs with its owner's rights, or with [caller's rights](/develop/api-reference/connections/st.connections.snowflakeconnection) through `st.connection("snowflake-callers-rights")` on the container runtime or serverless compute, so each viewer sees only the data they may see. Apps can query governed metrics and call Cortex AI. To learn more, see the [Streamlit in Snowflake product page](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/). Everything also works with any database and any cloud: Snowflake is the best place to run Streamlit, not the only one.
+Streamlit is Snowflake's native framework for data apps. Snowflake's coding agent, CoCo, builds Streamlit apps from a request in plain words, with the `developing-with-streamlit` skill bundled. In [Streamlit in Snowflake](/deploy/snowflake), apps run inside Snowflake, so your data stays on the platform under Snowflake's access controls. An app runs with its owner's rights, or with caller's rights through [`st.connection("snowflake-callers-rights")`](/develop/api-reference/connections/st.connections.snowflakeconnection) on the container runtime or serverless compute, so each viewer sees only the data they may see. Apps can query governed metrics and call Cortex AI. To learn more, see the [Streamlit in Snowflake product page](https://www.snowflake.com/en/product/features/streamlit-in-snowflake/). Everything also works with any database and any cloud: Snowflake is the best place to run Streamlit, not the only one.
 
 ## Frequently asked questions
 
@@ -173,6 +173,10 @@ Run [`streamlit skills`](/develop/api-reference/cli/skills) once in your project
 
 Yes. Turn on the experimental [`server.enableAgentApi`](/develop/api-reference/configuration/config.toml#server) option, and agents can use your app over HTTP or as a remote MCP server. They read its tables and charts as data, set its filters, and submit its forms, through the same logic as a person in the browser, and with no more access than the browser. Add the app's URL to Claude Code, Cursor, VS Code, Snowflake CoCo, or any MCP client. Claude and ChatGPT custom connectors need a publicly reachable app without sign-in. Existing apps need no code changes. To learn more, see [Agent-accessible apps](/develop/concepts/ai-agents/agent-access).
 
+### Can I build an AI assistant into my app?
+
+Yes. Chat elements are built in, so an assistant can answer questions over your data right inside the app. Use [`st.chat_input`](/develop/api-reference/chat/st.chat_input) and [`st.chat_message`](/develop/api-reference/chat/st.chat_message) for the conversation, and [`st.write_stream`](/develop/api-reference/write-magic/st.write_stream) to show answers as the model writes them. To show each step the assistant takes, use [`st.status`](/develop/api-reference/status/st.status), or [`st.expander`](/develop/api-reference/layout/st.expander) with `type="step"` for a timeline or `type="compact"` for a minimal inline toggle. Let people rate an answer with [`st.feedback`](/develop/api-reference/widgets/st.feedback). The assistant works through your Python code, so you can call any model or agent framework, or Cortex AI on Snowflake. To get started, see [Build LLM apps](/develop/tutorials/chat-and-llm-apps).
+
 ### Can Streamlit build advanced, interactive dashboards?
 
 Yes. You get tables that stay responsive over large data, cross-filtering and drill-down by selecting points on charts or rows in tables, filters and views you can share by URL, sections that load in parallel and refresh on their own, and responsive grids, dialogs, and side drawers. Native charts cover nearly every visual, from line charts to treemaps, sankey charts, and maps. Because the logic is Python, a dashboard can also forecast, simulate, and write back. To learn more, see [Build advanced dashboards](/develop/concepts/design/dashboards).
@@ -183,7 +187,7 @@ For the dashboards your teams rely on, yes: as a modernization, not a one-to-one
 
 ### How do I move a Power BI or Tableau dashboard to Streamlit?
 
-A coding agent rebuilds each dashboard in plain Python, and your data team reviews it. Streamlit itself doesn't convert reports, but on Snowflake, CoCo's bundled `tableau-to-streamlit-in-snowflake` skill converts a Tableau workbook into a Streamlit in Snowflake app, and its `agent-studio` skill creates semantic views from Tableau or Power BI files. With any coding agent, give it screenshots of each page, the metric definitions (a Power BI Project (`.pbip`) stores DAX measures as text files, and a Tableau workbook (`.twb`) is XML that includes calculated fields), the tables behind each visual, and a few expected values. Then invoke the `developing-with-streamlit` skill, and keep the number checks as `AppTest` tests. For a concept mapping and a step-by-step plan, see [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool)
+A coding agent rebuilds each dashboard in plain Python, and your data team reviews it. Streamlit itself doesn't convert reports, but on Snowflake, CoCo's bundled `tableau-to-streamlit-in-snowflake` skill converts a Tableau workbook into a Streamlit in Snowflake app, and its `agent-studio` skill creates semantic views from Tableau or Power BI files. With any coding agent, give it screenshots of each page, the metric definitions (a Power BI Project (`.pbip`) stores DAX measures as text files, and a Tableau workbook (`.twb`) is XML that includes calculated fields), the tables behind each visual, and a few expected values. Then invoke the `developing-with-streamlit` skill, and keep the number checks as [`AppTest`](/develop/concepts/app-testing) tests. For a concept mapping and a step-by-step plan, see [Coming from a BI tool?](/develop/concepts/design/dashboards#coming-from-a-bi-tool)
 
 ### How do I write data back from a dashboard?
 
@@ -191,7 +195,7 @@ Use [`st.data_editor`](/develop/api-reference/data/st.data_editor) and [`st.form
 
 ### Is Streamlit fast enough for large datasets?
 
-Yes. [`st.dataframe`](/develop/api-reference/data/st.dataframe) loads rows lazily as people scroll, and data reaches the browser in an efficient columnar format. Cached data can refresh in the background, page sections can load in parallel with `@st.fragment(parallel=True)`, and inputs with `on_change="ignore"` update without rerunning the app, so people can adjust several filters and apply them with one button. Row selections need the full table in the browser, so for very large tables, cross-filter from widgets or charts. The bundled agent skills teach coding agents these patterns.
+Yes. [`st.dataframe`](/develop/api-reference/data/st.dataframe) loads rows lazily as people scroll, and data reaches the browser in an efficient columnar format. Cached data can refresh in the background, page sections can load in parallel with [`@st.fragment(parallel=True)`](/develop/api-reference/execution-flow/st.fragment), and inputs with `on_change="ignore"` update without rerunning the app, so people can adjust several filters and apply them with one button. Row selections need the full table in the browser, so for very large tables, cross-filter from widgets or charts. The bundled agent skills teach coding agents these patterns.
 
 ### Do I need a separate charting library?
 

@@ -28,9 +28,9 @@ CATEGORY_SEP = " / "
 INITIAL_TEXT = """\
 # Streamlit documentation website
 
-> Streamlit is the open-source, agent-native data app framework. Turn your data
-into interactive apps and dashboards, written in plain Python by you or your
-coding agent."""
+> Streamlit is the agent-native data app framework: the open-source Python
+framework for data apps and dashboards, made for people and agents, in code
+your team can read."""
 
 # Summary of what Streamlit is for, which follows the header. Agents read this
 # first, so keep it consistent with docs.streamlit.io/get-started/why-streamlit.
@@ -67,9 +67,14 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
 - Modernize an older app (faster, newer features, a modern theme): ask a coding
   agent `/developing-with-streamlit Modernize my app`:
   https://docs.streamlit.io/develop/concepts/ai-agents/coding-agents#modernize-an-existing-app
-- Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
-  agents over MCP at `/_stcore/agent/mcp`:
+- Agent-accessible apps: with the experimental `server.enableAgentApi` option
+  (off by default), any app also serves AI agents over MCP at
+  `/_stcore/agent/mcp`:
   https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
+- AI assistants inside your app: chat (`st.chat_input`, `st.chat_message`),
+  streaming (`st.write_stream`), step-by-step progress (`st.status`), and
+  feedback (`st.feedback`):
+  https://docs.streamlit.io/develop/tutorials/chat-and-llm-apps
 - Live demos: a dashboard (https://advanced-dashboard-demo.streamlit.app/), a
   forecasting app (https://apps-that-compute-demo.streamlit.app/), and a
   workflow app (https://apps-that-act-demo.streamlit.app/).

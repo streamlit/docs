@@ -1,6 +1,6 @@
 ---
 title: Welcome to Streamlit
-description: Documentation for Streamlit, the open-source, agent-native data app framework. Turn your data into interactive apps and dashboards, written in plain Python by you or your coding agent.
+description: Streamlit is the open-source Python framework for data apps and dashboards, made for people and agents, in code your team can read.
 features:
   - title: Get started
     body: Lorem ipsum dolor sit amet, consectetur adipiscing elit.

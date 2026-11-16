@@ -36,3 +36,7 @@ Streamlit is the agent-native data app framework. Agents build each app in plain
 ## Write your business logic once
 
 A Streamlit app packages the queries, the calculations, the definitions, and the rules about who may see what. People use it in the browser. Agents use it as a tool, with the same numbers, and with no more access than the browser. A custom stack needs a UI and a separate API for the same result, both built, secured, and kept in sync. With Streamlit, you can ask your forecast app what happens at a 5% price increase, or let an agent fill in an approval form for your review.
+
+## Build an assistant into your app
+
+Agents can also live inside your app. Build an AI assistant that answers questions over your data with [`st.chat_input`](/develop/api-reference/chat/st.chat_input) and [`st.chat_message`](/develop/api-reference/chat/st.chat_message), stream its answers with [`st.write_stream`](/develop/api-reference/write-magic/st.write_stream), show each step it takes with [`st.status`](/develop/api-reference/status/st.status), and let people rate its answers with [`st.feedback`](/develop/api-reference/widgets/st.feedback). The assistant works through your Python code, so you can call any model or agent framework, or Cortex AI on Snowflake. To get started, see [Build LLM apps](/develop/tutorials/chat-and-llm-apps).
