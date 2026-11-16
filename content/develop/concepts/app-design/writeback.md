@@ -1,17 +1,17 @@
 ---
 title: Edit and write back data
 slug: /develop/concepts/design/writeback
-description: Build apps that act in Python with Streamlit. Collect edits with editable tables and forms, validate them, and write decisions back to your warehouse or database for review and approval queues, sign-offs, data-quality triage, and planning input.
-keywords: writeback, write back, apps that act, editable table, data editor, st.data_editor, forms, approvals, approval workflow, review queue, sign-off, data quality, planning, input, crud, database writes, snowflake writeback, human in the loop
+description: Build workflow apps in Python with Streamlit. Collect edits with editable tables and forms, validate them with the same Python logic that produced the numbers, and write decisions back to your warehouse or database for approving what AI agents propose, review and approval queues, sign-offs, data-quality triage, and planning input.
+keywords: writeback, write back, workflow apps, editable table, data editor, st.data_editor, forms, approvals, approval workflow, review queue, sign-off, data quality, planning, input, crud, database writes, snowflake writeback, human in the loop
 ---
 
 # Edit and write back data
 
-Most dashboards are read-only. Apps that act let people make the decision in the same app as the data: review and approval queues, forecast sign-offs, data-quality triage, planning input, and approving what an AI agent proposes. In Streamlit, the table people edit, the validation rules, and the write to your database are the same Python script, so your data team can review the whole flow.
+Workflow apps let people make the decision in the same app as the data: approving what an AI agent proposes, review and approval queues, forecast sign-offs, data-quality triage, and planning input. In Streamlit, the table people edit, the validation rules, and the write to your database are the same Python script. Each decision is checked by the same logic that produced the numbers, and your data team can review the whole flow.
 
-To see a complete example, try the [apps that act demo](https://apps-that-act-demo.streamlit.app/):
+To see a complete example, try the [workflow app demo](https://workflow-app-demo.streamlit.app/):
 
-<Cloud name="apps-that-act-demo" height="640px" />
+<Cloud name="workflow-app-demo" height="640px" />
 
 ## The building blocks
 
@@ -78,7 +78,7 @@ The query leaves out payments that already have a decision, so saved rows drop o
 
 ## Review what agents propose
 
-Apps that act are a natural place for people to stay in control of AI. Let an agent or model draft the decisions, such as suggested categories, forecast adjustments, or data-quality fixes, and show them in an editable table. A person reviews, corrects, and approves them, and only approved changes are written back.
+Workflow apps are a natural place for people to stay in control of AI. Let an agent or model draft the decisions, such as suggested categories, forecast adjustments, or data-quality fixes, and show them in an editable table. A person reviews, corrects, and approves them, and only approved changes are written back.
 
 When the [agent API](/develop/concepts/ai-agents/agent-access) is on, an AI agent can also fill in the app's forms and widgets and leave the final approval to a person. Agents can't edit `st.data_editor` tables yet, and browser-side checks such as `required` and `validate` don't run for them, so validate in Python everything an agent can submit.
 

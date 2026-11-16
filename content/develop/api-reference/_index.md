@@ -9,7 +9,7 @@ keywords: api, reference, functions, documentation, streamlit, components, widge
 
 Streamlit is batteries-included: widgets, charts, data tables, forms, layouts,
 navigation, state, caching, sign-in, theming, chat, and testing are built in and
-work together, with no separate frontend or API layer. The API reference is
+work together, with no frontend or API layer to write. The API reference is
 organized by activity type, like displaying data or optimizing performance. Each
 section includes methods associated with the activity type, including examples.
 
