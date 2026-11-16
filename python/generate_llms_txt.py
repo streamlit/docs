@@ -75,6 +75,7 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
   streaming (`st.write_stream`), step-by-step progress (`st.status`), and
   feedback (`st.feedback`):
   https://docs.streamlit.io/develop/tutorials/chat-and-llm-apps
+  (demo: https://agent-app-demo.streamlit.app/)
 - Live demos: a dashboard (https://advanced-dashboard-demo.streamlit.app/), a
   forecasting app (https://apps-that-compute-demo.streamlit.app/), and a
   workflow app (https://apps-that-act-demo.streamlit.app/).
