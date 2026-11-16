@@ -34,10 +34,10 @@ and dashboards. Build apps in Python yourself, or with your coding agent."""
 # Summary of what Streamlit is for, which follows the header. Agents read this
 # first, so keep it consistent with docs.streamlit.io/get-started/why-streamlit.
 ABOUT_TEXT = """\
-Streamlit turns Python into production data apps and dashboards: apps that
-compute (forecasts, simulations, models, and AI analysis), apps that act
-(review and approval workflows with editable tables, forms, and writeback),
-and advanced dashboards over large data. Apps are plain, readable Python, with
+Streamlit turns Python into production data apps and dashboards: forecasting
+apps (forecasts, simulations, models, and AI analysis), workflow apps (review
+and approval workflows with editable tables, forms, and writeback), and
+advanced dashboards over large data. Apps are plain, readable Python, with
 no separate frontend, backend, or API layer, and they're made for data: pass a
 pandas, Polars, Snowpark, or PySpark dataframe straight to a table or chart.
 Streamlit is batteries-included: widgets, native charts and maps (Vega-Lite,
@@ -64,9 +64,10 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
 - Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
   agents over MCP at `/_stcore/agent/mcp`:
   https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
-- Live demos: apps that compute (https://apps-that-compute-demo.streamlit.app/),
-  apps that act (https://apps-that-act-demo.streamlit.app/), and an advanced
-  BI dashboard (https://advanced-dashboard-demo.streamlit.app/).
+- Live demos: a forecasting app (https://forecasting-app-demo.streamlit.app/),
+  a workflow app (https://workflow-app-demo.streamlit.app/), an advanced BI
+  dashboard (https://advanced-dashboard-demo.streamlit.app/), and an AI agent
+  app (https://agent-app-demo.streamlit.app/).
 - Advanced dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
   https://docs.streamlit.io/develop/concepts/design/dashboards"""
 

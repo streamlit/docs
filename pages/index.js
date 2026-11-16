@@ -97,10 +97,10 @@ export default function Home({ window, menu }) {
             <TileContainer>
               <RefCard
                 size="third"
-                href="https://apps-that-compute-demo.streamlit.app/"
+                href="https://forecasting-app-demo.streamlit.app/"
               >
                 <i className="material-icons-sharp">calculate</i>
-                <h4>Apps that compute</h4>
+                <h4>Forecasting apps</h4>
                 <p>
                   Forecasts, simulations, and models with what-if levers, in
                   Python next to the data.
@@ -108,10 +108,10 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="https://apps-that-act-demo.streamlit.app/"
+                href="https://workflow-app-demo.streamlit.app/"
               >
                 <i className="material-icons-sharp">task_alt</i>
-                <h4>Apps that act</h4>
+                <h4>Workflow apps</h4>
                 <p>
                   Review and approval queues with editable tables, forms, and
                   writeback.

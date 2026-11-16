@@ -22,24 +22,24 @@ Streamlit is also the No. 1 Python framework for data apps and dashboards. [More
 
 ## What teams build
 
-Streamlit is great for AI and chat apps over your data, ML and model tools, and internal data tools. Teams get the most out of it in three areas.
+Streamlit is great for [AI chat and agent apps](https://agent-app-demo.streamlit.app/) over your data, ML and model tools, and internal data tools. Teams get the most out of it in three areas.
 
-### Apps that compute
+### Forecasting apps
 
 Forecasts with what-if levers, pricing and demand simulators, churn and risk models, and AI analysis over your data. The value is the computation, and it runs in Python next to the data. A custom stack would need a Python backend for it anyway. In Streamlit, the computation and the interface are the same code.
 
-<Cloud name="apps-that-compute-demo" height="640px" />
+<Cloud name="forecasting-app-demo" height="640px" />
 
-- Try the demo: [apps-that-compute-demo.streamlit.app](https://apps-that-compute-demo.streamlit.app/)
+- Try the demo: [forecasting-app-demo.streamlit.app](https://forecasting-app-demo.streamlit.app/)
 - Key features: [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) for expensive computations and models, [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) to rerun only the part of the page that changed, and [chat elements](/develop/api-reference/chat) for AI assistants inside your app.
 
-### Apps that act
+### Workflow apps
 
 Review and approval queues, forecast sign-offs, data-quality triage, planning input, and approving what an AI agent proposes. These apps need editable tables, forms, validation, and writeback, so the decision happens in the same app as the data.
 
-<Cloud name="apps-that-act-demo" height="640px" />
+<Cloud name="workflow-app-demo" height="640px" />
 
-- Try the demo: [apps-that-act-demo.streamlit.app](https://apps-that-act-demo.streamlit.app/)
+- Try the demo: [workflow-app-demo.streamlit.app](https://workflow-app-demo.streamlit.app/)
 - Key features: [`st.data_editor`](/develop/api-reference/data/st.data_editor) for editable tables, [`st.form`](/develop/api-reference/execution-flow/st.form) to batch input, [`st.dialog`](/develop/api-reference/execution-flow/st.dialog) for confirmations and side drawers, and [`st.connection`](/develop/api-reference/connections/st.connection) to write decisions back. To learn more, see [Edit and write back data](/develop/concepts/design/writeback).
 
 ### Advanced dashboards
