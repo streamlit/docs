@@ -28,18 +28,21 @@ CATEGORY_SEP = " / "
 INITIAL_TEXT = """\
 # Streamlit documentation website
 
-> Streamlit is the agent-native, open-source Python framework for data apps
-and dashboards. Build apps in Python yourself, or with your coding agent."""
+> Streamlit is the open-source, agent-native data app framework. Turn your data
+into interactive apps and dashboards, written in plain Python by you or your
+coding agent."""
 
 # Summary of what Streamlit is for, which follows the header. Agents read this
 # first, so keep it consistent with docs.streamlit.io/get-started/why-streamlit.
 ABOUT_TEXT = """\
-Streamlit turns Python into production data apps and dashboards: apps that
-compute (forecasts, simulations, models, and AI analysis), apps that act
-(review and approval workflows with editable tables, forms, and writeback),
-and advanced dashboards over large data. Apps are plain, readable Python, with
-no separate frontend, backend, or API layer, and they're made for data: pass a
-pandas, Polars, Snowpark, or PySpark dataframe straight to a table or chart.
+Data teams and their coding agents use Streamlit to turn Python into production
+data apps: dashboards that go beyond what BI tools can hold (KPI dashboards
+with drill-down and cross-filtering over large data), forecasting apps with
+what-if levers (simulations and models), and workflow apps for reviews,
+approvals, and writeback (editable tables and forms, validated by the same
+Python logic that produced the numbers). Apps are plain, readable Python, with
+no frontend or API layer to write, and they're made for data: pass a pandas,
+Polars, Snowpark, or PySpark dataframe straight to a table or chart.
 Streamlit is batteries-included: widgets, native charts and maps (Vega-Lite,
 ECharts, Plotly, and deck.gl, covering nearly every visualization), data
 tables, forms, layouts, navigation, state, caching, sign-in (`st.login`),
@@ -48,7 +51,10 @@ design, so every app looks great and consistent, however many teams and agents
 build them.
 Streamlit is the No. 1 Python framework for data apps and dashboards: more
 than a million GitHub repositories depend on it
-(https://github.com/streamlit/streamlit/network/dependents). It runs anywhere
+(https://github.com/streamlit/streamlit/network/dependents), and it ranked
+No. 1 among libraries for creating dashboards in the Python Developers Survey
+2024 by the PSF and JetBrains
+(https://lp.jetbrains.com/python-developers-survey-2024/). It runs anywhere
 Python 3.11 or later runs, and natively inside Snowflake with Streamlit in
 Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/).
 
@@ -64,11 +70,13 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
 - Agent-accessible apps: with `server.enableAgentApi`, any app also serves AI
   agents over MCP at `/_stcore/agent/mcp`:
   https://docs.streamlit.io/develop/concepts/ai-agents/agent-access
-- Live demos: apps that compute (https://apps-that-compute-demo.streamlit.app/),
-  apps that act (https://apps-that-act-demo.streamlit.app/), and an advanced
-  BI dashboard (https://advanced-dashboard-demo.streamlit.app/).
-- Advanced dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
-  https://docs.streamlit.io/develop/concepts/design/dashboards"""
+- Live demos: a dashboard (https://advanced-dashboard-demo.streamlit.app/), a
+  forecasting app (https://apps-that-compute-demo.streamlit.app/), and a
+  workflow app (https://apps-that-act-demo.streamlit.app/).
+- Dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
+  https://docs.streamlit.io/develop/concepts/design/dashboards
+- Workflow apps with editable tables, validation, and writeback:
+  https://docs.streamlit.io/develop/concepts/design/writeback"""
 
 # How to read the docs as Markdown (see generate_llms_full_txt.py).
 MARKDOWN_TEXT = f"""\

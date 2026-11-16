@@ -53,7 +53,7 @@ interactic content for your users.
 
 - Learn how to make your apps performant and easy-to-manage.
 - Learn how to structure and design your project.
-- Learn how to build advanced dashboards and apps that write data back.
+- Learn how to build advanced dashboards and workflow apps that write data back.
 
 </RefCard>
 

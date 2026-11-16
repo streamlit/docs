@@ -29,7 +29,7 @@ Build fast, interactive dashboards over large data with lazy-loading tables, bac
 
 <h5>Edit and write back data</h5>
 
-Build apps that act: review and approval queues, sign-offs, and planning input with editable tables, forms, validation, and writeback.
+Build workflow apps: review queues, approvals, sign-offs, and planning input with editable tables, forms, validation, and writeback.
 
 </RefCard>
 

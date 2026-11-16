@@ -59,7 +59,7 @@ Which clients can reach your app depends on where it runs:
 
 | App                            | Reachable from                                                                                                                                                                  |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Running locally                | Clients that run on your machine, such as Claude Code, Cursor, VS Code, and the Snowflake CoCo CLI. This is the usual setup while an agent builds and checks an app.            |
+| Running locally                | Clients that run on your machine, such as Claude Code, Cursor, VS Code, and the Snowflake CoCo CLI. This is the usual setup while an agent builds and verifies an app.          |
 | Deployed and public            | Any client, including custom connectors in the Claude and ChatGPT apps, which connect from their provider's servers. These need a publicly reachable URL, typically over HTTPS. |
 | Behind an authenticating proxy | Clients that can send the proxy's credentials as headers, which most desktop clients let you configure. Hosted connectors can't, because they expect MCP's OAuth flow.          |
 | Behind `st.login`              | Any client that can reach the app, but agents are signed out.                                                                                                                   |

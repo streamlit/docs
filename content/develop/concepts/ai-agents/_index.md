@@ -1,13 +1,13 @@
 ---
 title: Build with AI agents
 slug: /develop/concepts/ai-agents
-description: Streamlit is the agent-native data app framework. Learn how coding agents build, check, and maintain Streamlit apps with the bundled agent skills, and how AI agents use your apps as tools over MCP.
+description: Streamlit is the agent-native data app framework. Learn how coding agents build, verify, and maintain Streamlit apps with the bundled agent skills, and how AI agents use your apps as tools over MCP.
 keywords: ai agents, coding agents, agent-native, agent skills, streamlit skills, claude code, cursor, codex, mcp, model context protocol, agent api, ai tools, llm
 ---
 
 # Build with AI agents
 
-Streamlit is the agent-native data app framework. Agents build each app in plain, readable Python, and the people accountable for the numbers can review every line. Agents also take part in the rest of the app's life: they check their own work, keep the app running as requirements change, and use the finished app as a tool.
+Streamlit is the agent-native data app framework. Agents build each app in plain, readable Python, and the people accountable for the numbers can review every line. Agents also take part in the rest of the app's life: they verify their own work, update the app as requirements change, and use the finished app as a tool.
 
 <InlineCalloutContainer>
     <InlineCallout
@@ -15,7 +15,7 @@ Streamlit is the agent-native data app framework. Agents build each app in plain
         icon="smart_toy"
         bold="Build with coding agents"
         href="/develop/concepts/ai-agents/coding-agents"
-    >explains how to set up Claude Code, Cursor, Codex, Snowflake CoCo, and other coding agents with Streamlit's bundled expert skills, how to prompt them, and how they check their work without a browser.</InlineCallout>
+    >explains how to set up Claude Code, Cursor, Codex, Snowflake CoCo, and other coding agents with Streamlit's bundled expert skills, how to prompt them, and how they verify their work without a browser.</InlineCallout>
     <InlineCallout
         color="indigo-70"
         icon="hub"
@@ -28,9 +28,9 @@ Streamlit is the agent-native data app framework. Agents build each app in plain
 
 - **A compact API that models already know.** More than a million public repositories depend on Streamlit, so models have seen many Streamlit apps and know its API well.
 - **Expert skills in every release.** The bundled agent skills are written by the team that builds Streamlit and match the version you installed, so agents write for the version you actually run.
-- **One layer instead of three.** An app is plain Python, with no frontend, backend, or API contract between them. That's a fraction of the code a custom stack needs, so it takes fewer tokens to write and has fewer places to break.
+- **Less code to own, fewer places to break.** An app is plain Python, with no frontend, backend, or API contract to write. That's a fraction of the code a custom stack needs, so each app has less to maintain and fewer places to break, and it costs fewer tokens to write and to change.
 - **Batteries included.** Widgets, charts, data tables, forms, layouts, navigation, state, caching, sign-in, theming, chat, and testing are built in and work together. Agents don't pick a different combination of libraries on every run.
-- **Checks without a browser.** Agents drive the running app over HTTP and read tables, charts, and metrics back as data. They can also leave behind [`AppTest`](/develop/concepts/app-testing) tests that run in CI.
+- **Verification without a browser.** Agents drive the running app over HTTP and read tables, charts, and metrics back as data. They can also leave behind [`AppTest`](/develop/concepts/app-testing) tests that run in CI.
 - **Stable for years.** Breaking changes are extremely rare, so the apps agents build keep running on new releases, and every upgrade makes them better.
 
 ## Write your business logic once

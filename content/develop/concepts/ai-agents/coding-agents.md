@@ -1,13 +1,13 @@
 ---
 title: Build with coding agents
 slug: /develop/concepts/ai-agents/coding-agents
-description: Set up Claude Code, Cursor, Codex, Snowflake CoCo, and other coding agents to build Streamlit apps. Install Streamlit's bundled, version-matched agent skills with one command, write prompts that load them, and let agents check the running app and leave tests behind.
+description: Set up Claude Code, Cursor, Codex, Snowflake CoCo, and other coding agents to build Streamlit apps. Install Streamlit's bundled, version-matched agent skills with one command, write prompts that load them, and let agents verify the running app and leave tests behind.
 keywords: coding agents, ai coding, claude code, cursor, codex, copilot, agent skills, streamlit skills, AGENTS.md, prompts, vibe coding, ai generated apps, app testing, agent api, verify app
 ---
 
 # Build with coding agents
 
-Coding agents write a growing share of data apps. Streamlit gives them a compact API they already know, expert skills that ship with every release, and a way to check the running app without a browser. This guide shows how to set up your agent and get the most out of it.
+Coding agents write a growing share of data apps. Streamlit gives them a compact API they already know, expert skills that ship with every release, and a way to verify the running app without a browser. This guide shows how to set up your agent and get the most out of it.
 
 ## Install the agent skills
 
@@ -71,11 +71,11 @@ The agent first analyzes the whole app and shows you a short plan that names the
 
 The agent keeps your features, widget keys, query parameters, page URLs, and data logic intact, and checks every page in the running app with the agent API. Review the changes like any other code.
 
-## Let agents check their own work
+## Let agents verify their own work
 
-An agent should confirm that a change works before it reports the change as done. Streamlit gives agents two ways to check an app without a browser or screenshots.
+An agent should confirm that a change works before it reports the change as done. Streamlit gives agents two ways to verify an app without a browser or screenshots.
 
-### Check the running app
+### Verify the running app
 
 The experimental agent API lets an agent drive the running app over HTTP. The agent sends widget values as JSON and gets back the finished page as a tree of elements named after the `st.*` commands that produced them. Tables, charts, and metrics come back as data, so the agent can confirm that the numbers changed after an edit.
 
@@ -107,7 +107,7 @@ A typical loop is to edit the app, check it with the agent API, and then keep th
 
 Generating an app is cheap. Owning it isn't. Streamlit keeps the cost of owning many agent-built apps low:
 
-- **The reviewer is the new primary user.** Agents write the code, and you answer for it. A Streamlit app keeps the query, the logic, and the number on screen side by side in plain Python, so the people accountable for it can actually read it.
+- **Changes your data team can read.** Agents write the code, but people still answer for it. A Streamlit app keeps the query, the logic, and the number on screen side by side in plain Python, so each change stays small enough to read, in the language your data team already knows.
 - **Upgrades, not migrations.** Breaking changes are extremely rare. Bump one version, and every app gets new features, performance improvements, and security fixes, without per-app framework migrations.
 - **One experience everywhere.** Share one [theme](/develop/concepts/configuration/theming) across all your apps, and filtering, sorting, editing, and navigating work the same way in every app.
 - **Always-current guidance.** The skills improve with every release, so every app that agents build or change afterward improves too.

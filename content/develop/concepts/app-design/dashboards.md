@@ -2,16 +2,16 @@
 title: Build advanced dashboards
 slug: /develop/concepts/design/dashboards
 description: Build fast, interactive dashboards in Python with Streamlit. Lazy-loading tables, background cache refresh, partial and parallel reruns, cross-filtering, drill-down, shareable URLs, and responsive grids are built in. Includes a guide to moving and modernizing Power BI and Tableau dashboards in Streamlit.
-keywords: dashboards, advanced dashboards, kpi dashboard, business intelligence, BI, BI migration, modernize dashboards, power bi, power bi to python, power bi to streamlit, tableau, tableau to python, tableau to streamlit, looker, sigma, qlik, dax, migrate dashboards, cross-filtering, drill-down, large data, performance, lazy loading, caching, fragments, query parameters, st.grid, st.metric, semantic views, python dashboard
+keywords: dashboards, advanced dashboards, kpi dashboard, product metrics, business intelligence, BI, BI migration, modernize dashboards, power bi, power bi to python, power bi to streamlit, tableau, tableau to python, tableau to streamlit, looker, qlik, dax, migrate dashboards, cross-filtering, drill-down, large data, performance, lazy loading, caching, fragments, query parameters, st.grid, st.metric, semantic views, python dashboard
 ---
 
 # Build advanced dashboards
 
-Streamlit is built and tuned for demanding dashboards: KPI and operating dashboards with drill-down, cross-filtered views over large tables, live monitoring, and the dashboards a whole company relies on. Features that are hard to rebuild correctly in each app are solved once in the framework, and every release makes them faster.
+Streamlit is built and tuned for demanding dashboards: KPI, product metrics, and operating dashboards with drill-down, cross-filtered views over large tables, live monitoring, and the dashboards a whole company relies on. Features that are hard to rebuild correctly in each app are solved once in the framework, and every release makes them faster.
 
 Because a dashboard is plain Python, it can also do what a report can't: run forecasts and models, call AI, and let people write decisions back. The query, the logic, and the number on screen sit side by side, so your data team can review every number.
 
-To see these features together, try the [advanced dashboard demo](https://advanced-dashboard-demo.streamlit.app/):
+To see these features together, try the [dashboard demo](https://advanced-dashboard-demo.streamlit.app/):
 
 <Cloud name="advanced-dashboard-demo" height="640px" />
 
@@ -123,13 +123,13 @@ grid.metric("Retention", "96%", "-0.4%", border=True)
 
 ## Dashboards that agents can use
 
-Turn on the [agent API](/develop/concepts/ai-agents/agent-access), and an AI assistant can set your dashboard's filters and read its metrics, tables, and charts through the dashboard's own logic, instead of guessing at the warehouse schema. Agents use the same caches and partial reruns as people, so they get the same numbers people see. Agents set widgets such as select boxes, date inputs, and sliders; they can't make chart or table selections or click buttons in table cells yet, so keep every filter an agent needs available as a widget.
+Turn on the experimental [agent API](/develop/concepts/ai-agents/agent-access), and every dashboard is also a tool for agents, with no code changes. Ask an agent why this week's numbers moved, and it sets the dashboard's own filters and reads the metrics, tables, and charts back as data, through the dashboard's own logic instead of guessing at the warehouse schema. Agents use the same caches and partial reruns as people, so they get the same numbers people see, often without a new query. Agents set widgets such as select boxes, date inputs, and sliders; they can't make chart or table selections or click buttons in table cells yet, so keep every filter an agent needs available as a widget.
 
 ## Coming from a BI tool?
 
-For the dashboards your teams rely on in Power BI, Tableau, Looker, Sigma, or Qlik, move them to Streamlit and modernize them on the way. Together with Snowflake, Streamlit covers much of what teams use a BI tool for: governed data and metrics, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. A move is a modernization, not a one-to-one copy.
+For the dashboards your teams rely on in Power BI, Tableau, Looker, or Qlik, move them to Streamlit and modernize them on the way. Together with Snowflake, Streamlit covers much of what teams use a BI tool for: governed data and metrics, Snowflake's access controls, interactive filtering and drill-down, live refresh, and sharing and embedding. A move is a modernization, not a one-to-one copy.
 
-On top of that, a Streamlit dashboard can hold what a BI tool can't: forecasts and models in Python, editable tables and [writeback](/develop/concepts/design/writeback), AI features, and [access for AI agents](/develop/concepts/ai-agents/agent-access). It's Python code in your repository, so changes go through pull requests, review, and tests, and coding agents can make them from a request in plain words.
+On top of that, a Streamlit dashboard adds what BI tools weren't built for: your existing Python models, libraries, and tests, forecasts and AI, editable tables and [writeback](/develop/concepts/design/writeback) validated by the same Python code that produced the numbers, and [access for AI agents](/develop/concepts/ai-agents/agent-access). It's Python code in your repository, so changes go through pull requests, review, and tests, and coding agents can make them from a request in plain words.
 
 ### Map Power BI and Tableau concepts to Streamlit
 
@@ -155,15 +155,14 @@ On top of that, a Streamlit dashboard can hold what a BI tool can't: forecasts a
 | Limited data entry                     | Limited data entry                            | [`st.data_editor`](/develop/api-reference/data/st.data_editor) and [`st.form`](/develop/api-reference/execution-flow/st.form), with [writeback](/develop/concepts/design/writeback) to your database                                             |
 | Natural-language questions             | Natural-language questions                    | Any MCP client, such as Claude or ChatGPT, through the [agent API](/develop/concepts/ai-agents/agent-access)                                                                                                                                     |
 
-Looker, Sigma, and Qlik use similar concepts: filters become widgets, measures and calculations become cached Python or SQL functions, and governed models map to Snowflake semantic views or shared Python modules.
+Looker and Qlik use similar concepts: filters become widgets, measures and calculations become cached Python or SQL functions, and governed models map to Snowflake semantic views or shared Python modules.
 
 ### Modernize, step by step
 
-1. **Triage.** List the dashboards people depend on every week, and the reports nobody opens. Move the ones that matter, and leave one-off questions to chat.
-2. **Rebuild on governed metrics.** Build each dashboard on the same governed data and metric definitions as the original, such as Snowflake semantic views, so the numbers match the rest of the business.
-3. **Check the numbers.** Compare every figure against the original before you switch people over, and keep those checks as [`AppTest`](/develop/concepts/app-testing) tests.
-4. **Add what the BI tool couldn't hold.** Add forecasts, models, writeback, AI, and access for agents where they help people decide and act.
-5. **Retire the old report.** Turn off the original once its viewers have signed off on the new dashboard.
+1. **Rebuild the dashboards that matter.** Start with the dashboards people depend on every week. Build each one on the same governed data and metric definitions as the original, such as Snowflake semantic views, so the numbers match the rest of the business.
+2. **Check the numbers.** Compare every figure against the original before you switch people over, and keep those checks as [`AppTest`](/develop/concepts/app-testing) tests.
+3. **Add what the BI tool couldn't hold.** Add your Python models and logic, AI, writeback through that logic, and access for agents, where they help people decide and act.
+4. **Retire what's left.** Turn off each original once its viewers have signed off on the new dashboard. Retire the reports nobody opens, and leave one-off questions to chat.
 
 ### Rebuild a dashboard with a coding agent
 
