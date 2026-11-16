@@ -77,8 +77,8 @@ Snowflake (https://www.snowflake.com/en/product/features/streamlit-in-snowflake/
   https://docs.streamlit.io/develop/tutorials/chat-and-llm-apps
   (demo: https://agent-app-demo.streamlit.app/)
 - Live demos: a dashboard (https://advanced-dashboard-demo.streamlit.app/), a
-  forecasting app (https://apps-that-compute-demo.streamlit.app/), and a
-  workflow app (https://apps-that-act-demo.streamlit.app/).
+  forecasting app (https://forecasting-app-demo.streamlit.app/), and a
+  workflow app (https://workflow-app-demo.streamlit.app/).
 - Dashboards, and modernizing Power BI and Tableau dashboards in Streamlit:
   https://docs.streamlit.io/develop/concepts/design/dashboards
 - Workflow apps with editable tables, validation, and writeback:

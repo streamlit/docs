@@ -110,7 +110,7 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="https://apps-that-compute-demo.streamlit.app/"
+                href="https://forecasting-app-demo.streamlit.app/"
               >
                 <i className="material-icons-sharp">trending_up</i>
                 <h4>Forecasting apps</h4>
@@ -121,7 +121,7 @@ export default function Home({ window, menu }) {
               </RefCard>
               <RefCard
                 size="third"
-                href="https://apps-that-act-demo.streamlit.app/"
+                href="https://workflow-app-demo.streamlit.app/"
               >
                 <i className="material-icons-sharp">task_alt</i>
                 <h4>Workflow apps</h4>

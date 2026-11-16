@@ -9,9 +9,9 @@ keywords: writeback, write back, workflow apps, editable table, data editor, st.
 
 Workflow apps let people make the decision in the same app as the data: approving what an AI agent proposes, review and approval queues, forecast sign-offs, data-quality triage, and planning input. In Streamlit, the table people edit, the validation rules, and the write to your database are the same Python script. Each decision is checked by the same logic that produced the numbers, and your data team can review the whole flow.
 
-To see a complete example, try the [workflow app demo](https://apps-that-act-demo.streamlit.app/):
+To see a complete example, try the [workflow app demo](https://workflow-app-demo.streamlit.app/):
 
-<Cloud name="apps-that-act-demo" height="640px" />
+<Cloud name="workflow-app-demo" height="640px" />
 
 ## The building blocks
 

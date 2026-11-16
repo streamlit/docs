@@ -42,18 +42,18 @@ For teams on Power BI or Tableau, move your dashboards to Streamlit, and moderni
 
 Forecasts with what-if levers, scenario planning, pricing and demand simulators, and churn and risk models. The value is the computation, and it runs in Python next to the data. A custom stack would need a Python backend for it anyway. In Streamlit, the computation and the interface are the same code.
 
-<Cloud name="apps-that-compute-demo" height="640px" />
+<Cloud name="forecasting-app-demo" height="640px" />
 
-- Try the demo: [Forecasting app demo](https://apps-that-compute-demo.streamlit.app/)
+- Try the demo: [Forecasting app demo](https://forecasting-app-demo.streamlit.app/)
 - Key features: [`st.cache_data`](/develop/api-reference/caching-and-state/st.cache_data) and [`st.cache_resource`](/develop/api-reference/caching-and-state/st.cache_resource) for expensive computations and models, [`@st.fragment`](/develop/api-reference/execution-flow/st.fragment) to rerun only the part of the page that changed, and [chat elements](/develop/api-reference/chat) for AI assistants inside your app.
 
 ### Workflow apps
 
 Approving what an AI agent proposes, review and approval queues, forecast sign-offs, data-quality triage, and planning input. These apps need editable tables, forms, validation, and writeback, so the decision happens in the same app as the data, checked by the same Python logic that produced the numbers.
 
-<Cloud name="apps-that-act-demo" height="640px" />
+<Cloud name="workflow-app-demo" height="640px" />
 
-- Try the demo: [Workflow app demo](https://apps-that-act-demo.streamlit.app/)
+- Try the demo: [Workflow app demo](https://workflow-app-demo.streamlit.app/)
 - Key features: [`st.data_editor`](/develop/api-reference/data/st.data_editor) for editable tables, [`st.form`](/develop/api-reference/execution-flow/st.form) to batch input, [`st.dialog`](/develop/api-reference/execution-flow/st.dialog) for confirmations and side drawers, and [`st.connection`](/develop/api-reference/connections/st.connection) to write decisions back. To learn more, see [Edit and write back data](/develop/concepts/design/writeback).
 
 ## Built for coding agents
