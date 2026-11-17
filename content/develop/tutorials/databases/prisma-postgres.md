@@ -21,7 +21,11 @@ This guide explains how to securely access a [Prisma Postgres](https://www.prism
   sqlalchemy>=2.0.0
   ```
 
-- You need either [Node.js](https://nodejs.org/) to create a temporary database from your terminal, or a [Prisma Console](https://console.prisma.io) account to create a permanent one.
+    <Note>
+        You may use `psycopg2` instead of `psycopg2-binary`. However, building Psycopg requires a few prerequisites (like a C compiler). To use `psycopg2` on Community Cloud, you must include `libpq-dev` in a [`packages.txt`](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies#apt-get-dependencies) file in the root of your repository. `psycopg2-binary` is a stand-alone package that is practical for testing and development.
+    </Note>
+
+- You need either [Node.js](https://nodejs.org/) 20.12 or later to create a temporary database from your terminal, or a [Prisma Console](https://console.prisma.io) account to create a permanent one.
 - You should have a basic understanding of [`st.connection`](/develop/api-reference/connections/st.connection) and [Secrets management](/develop/concepts/connections/secrets-management).
 
 ## Create a Prisma Postgres database
@@ -35,7 +39,7 @@ If you already have a Prisma Postgres database that you want to use, you can [sk
      npx create-db@latest
      ```
 
-     The command prints a connection string and a claim link. The database is deleted after 24 hours unless you claim it with that link.
+     The command prints a connection string and a claim link. The database is deleted after 24 hours unless you claim it with that link. You can set a shorter lifetime with the `--ttl` flag.
 
    - To create a permanent database, sign in to the [Prisma Console](https://console.prisma.io), create a project with a Prisma Postgres database, and generate a connection string as described in [Connecting to your database](https://www.prisma.io/docs/postgres/database/connecting-to-your-database).
 
@@ -122,5 +126,6 @@ If you already have a Prisma Postgres database that you want to use, you can [sk
 
 This tutorial assumes a local Streamlit app, but you can also connect to a Prisma Postgres database from apps hosted on Community Cloud. The additional steps are:
 
+- If you created a temporary database with `npx create-db`, claim it so it isn't deleted while your app is deployed.
 - Add a [`requirements.txt`](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) file to your repo. Include all the packages listed in [Prerequisites](#prerequisites) and any other dependencies.
 - [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#how-to-use-secrets-management) to your app in Community Cloud.
