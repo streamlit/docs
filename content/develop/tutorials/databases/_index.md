@@ -100,6 +100,14 @@ They use Streamlit's [Secrets management](/develop/concepts/connections/secrets-
 
 </DataSourcesCard>
 
+<DataSourcesCard href="/develop/tutorials/databases/prisma-postgres">
+
+<Image pure alt="screenshot" src="/images/databases/prisma-postgres.png" />
+
+<h5>Prisma Postgres</h5>
+
+</DataSourcesCard>
+
 <DataSourcesCard href="/develop/tutorials/databases/private-gsheet">
 
 <Image pure alt="screenshot" src="/images/databases/gsheet.png" />
