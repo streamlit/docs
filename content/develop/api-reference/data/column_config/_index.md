@@ -11,6 +11,17 @@ When working with data in Streamlit, the `st.column_config` class is a powerful 
 
 Whether it's translating temporal data into user-friendly formats or utilizing charts and progress bars for clearer data visualization, column configuration not only provides the user with an enriched data viewing experience but also ensures that you're equipped with the tools to present and interact with your data, just the way you want it.
 
+<Note>
+
+Pinning columns with `pinned=True` depends on the available table width. Streamlit
+can disable pinning when the estimated combined width of pinned columns takes up
+too much of the table. Visible index columns count toward this width. If pinning
+is disabled, try expanding the table to fullscreen or reducing the widths or
+number of pinned columns. To configure an index column, use `"_index"` as the key
+in `column_config`.
+
+</Note>
+
 <TileContainer>
 <RefCard href="/develop/api-reference/data/st.column_config/st.column_config.column">
 <Image pure alt="screenshot" src="/images/api/column_config.column.jpg" />
