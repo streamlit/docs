@@ -2131,6 +2131,7 @@
 <url><loc>https://docs.streamlit.io/develop/tutorials/databases/mysql</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/databases/neon</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/databases/postgresql</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.streamlit.io/develop/tutorials/databases/prisma-postgres</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/databases/private-gsheet</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/databases/public-gsheet</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
 <url><loc>https://docs.streamlit.io/develop/tutorials/databases/snowflake</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
