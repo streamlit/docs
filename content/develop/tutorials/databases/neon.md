@@ -65,14 +65,16 @@ If you already have a Neon project that you want to use, you can [skip to the ne
    ```
 
 1. If you do not already have a `.streamlit/secrets.toml` file in your app's root directory, create an empty secrets file.
-1. Copy your connection string and add it to your app's `.streamlit/secrets.toml` file as follows:
+1. Copy your connection string and add it to your app's `.streamlit/secrets.toml` file. Replace the `postgresql://` scheme with `postgresql+psycopg2://`:
 
    ```toml
    # .streamlit/secrets.toml
 
    [connections.neon]
-   url="postgresql://neondb_owner:xxxxxxxxxxxx@ep-adjective-noun-xxxxxxxx.us-east-2.aws.neon.tech/neondb?sslmode=require"
+   url="postgresql+psycopg2://neondb_owner:xxxxxxxxxxxx@ep-adjective-noun-xxxxxxxx.us-east-2.aws.neon.tech/neondb?sslmode=require"
    ```
+
+   Naming the driver in the scheme tells SQLAlchemy to use `psycopg2` from your requirements. Without it, SQLAlchemy 2.1 and later default to `psycopg` (version 3), which isn't installed.
 
    <Important>
        Add this file to `.gitignore` and don't commit it to your GitHub repo!
@@ -116,5 +118,5 @@ If you already have a Neon project that you want to use, you can [skip to the ne
 
 This tutorial assumes a local Streamlit app, but you can also connect to a Neon database from apps hosted on Community Cloud. The additional steps are:
 
-- Add a [`requirements.txt`](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) file to your repo. Include all the packages listed in [Prequisites](#prerequisites) and any other dependencies.
+- Add a [`requirements.txt`](/deploy/streamlit-community-cloud/deploy-your-app/app-dependencies) file to your repo. Include all the packages listed in [Prerequisites](#prerequisites) and any other dependencies.
 - [Add your secrets](/deploy/streamlit-community-cloud/deploy-your-app/secrets-management#how-to-use-secrets-management) to your app in Community Cloud.

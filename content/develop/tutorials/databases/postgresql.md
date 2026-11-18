@@ -40,12 +40,15 @@ Your local Streamlit app will read secrets from a file `.streamlit/secrets.toml`
 
 [connections.postgresql]
 dialect = "postgresql"
+driver = "psycopg2"
 host = "localhost"
 port = "5432"
 database = "xxx"
 username = "xxx"
 password = "xxx"
 ```
+
+The `driver` setting tells SQLAlchemy to use `psycopg2` from your requirements. Without it, SQLAlchemy 2.1 and later default to `psycopg` (version 3).
 
 <Important>
 
