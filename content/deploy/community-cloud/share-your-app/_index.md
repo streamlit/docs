@@ -11,7 +11,7 @@ Now that your app is deployed you can easily share it and collaborate on it. But
 
 Your app is now live at a fixed URL, so go wild and share it with whomever you want. Your app will inherit permissions from your GitHub repo, meaning that if your repo is private your app will be private and if your repo is public your app will be public. If you want to change that you can simply do so from the app settings menu.
 
-You are only allowed one private app at a time. If you've deployed from a private repository, you will have to make that app public or delete it before you can deploy another app from a private repository. Only developers can change your app between public and private.
+You are only allowed one private app at a time. If you've deployed from a private repository, you will have to make that app public or delete it before you can deploy another app from a private repository. Only developers can change your app between public and private. Only developers see the **Share** button and can invite viewers. Invited viewers can open the app after signing in, but they cannot invite others.
 
 - [Make your app public or private](#make-your-app-public-or-private)
 - [Share your public app](#share-your-public-app)
@@ -60,7 +60,7 @@ Use the social media sharing buttons to post your app on our forum! We'd love to
 
 ### Invite viewers by email
 
-Whether your app is public or private, you can send an email invite to your app directly from Streamlit Community Cloud. This grants the viewer access to analytics for all your public apps and the ability to invite other viewers to your workspace. Developers and invited viewers are identified by their email in analytics instead of appearing anonymously (if they view any of your apps while signed in). Read more about viewers in [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics).
+Whether your app is public or private, developers can send an email invite to your app directly from Streamlit Community Cloud. Invited viewers can view the app and are granted access to analytics for all your public apps. Invited viewers do not see the **Share** button and cannot invite other viewers. Developers and invited viewers are identified by their email in analytics instead of appearing anonymously (if they view any of your apps while signed in). Read more about viewers in [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics).
 
 1. From your app at `<your-custom-subdomain>.streamlit.app`, click "**Share**" in the upper-right corner.
 2. Enter an email address and click "**Invite**."
@@ -109,7 +109,7 @@ Once you have added someone's email address to your app's viewer list, that pers
 
 <Important>
 
-When you add a viewer to any app in your workspace, they are granted access to analytics for that app as well as analytics for all your public apps. They can also pass these permissions to others by inviting more viewers. All viewers and developers in your workspace are identified by their email in analytics. Furthermore, their emails show in analytics for every app in your workspace and not just apps they are explicitly invited to. Read more about viewers in [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics)
+When you add a viewer to any app in your workspace, they are granted access to analytics for that app as well as analytics for all your public apps. Only developers can invite additional viewers. Invited viewers do not see the **Share** button. All viewers and developers in your workspace are identified by their email in analytics. Furthermore, their emails show in analytics for every app in your workspace and not just apps they are explicitly invited to. Read more about viewers in [App analytics](/deploy/streamlit-community-cloud/manage-your-app/app-analytics)
 
 </Important>
 
