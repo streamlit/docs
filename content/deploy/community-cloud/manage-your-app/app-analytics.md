@@ -44,7 +44,7 @@ For public apps, we anonymize all viewers outside your workspace to protect thei
 
 <Important>
 
-When you invite a viewer to an app, they gain access to analytics as well. Additionally, if someone is invited as a viewer to _any_ app in your workspace, they can see analytics for all public apps in your workspace and invite additional viewers themselves. A viewer in your workspace may see the emails of developers and other viewers in your workspace through analytics.
+When you invite a viewer to an app, they gain access to analytics as well. Additionally, if someone is invited as a viewer to _any_ app in your workspace, they can see analytics for all public apps in your workspace. Only developers can invite additional viewers. Invited viewers do not see the **Share** button. A viewer in your workspace may see the emails of developers and other viewers in your workspace through analytics.
 
 </Important>
 
