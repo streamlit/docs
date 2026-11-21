@@ -264,9 +264,11 @@ For step 2, prior to v1.46.0, Streamlit would ignore the value in Session State 
 
 When rerunning a script without changing a widget's identity:
 
-1. Streamlit will connect to the existing frontend and backend parts.
-2. If the widget has a key that was deleted from `st.session_state`, then Streamlit will recreate the key using the current frontend value. This is because deleting a key from Session State will not revert the widget to a default value.
-3. The widget command will return the current value of the widget.
+1. Streamlit connects to the existing frontend and backend parts of the widget.
+2. The widget keeps its current frontend value. Deleting its key from
+   `st.session_state` does not reset the widget, and the key may remain absent
+   from `st.session_state` during that script run.
+3. The widget command returns the widget's current value.
 
 ### Widget clean-up process
 
