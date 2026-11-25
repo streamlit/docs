@@ -104,7 +104,7 @@ For each filename in the list above, the URL pathname would be "Awesome_page" re
 
 The primary way users navigate between pages is through the navigation widget. Both methods for defining multipage apps include a default navigation menu that appears in the sidebar. When a user clicks this navigation widget, the app reruns and loads the selected page. Optionally, you can hide the default navigation UI with `st.navigation(..., position="hidden")` and build your own with [`st.page_link`](/develop/api-reference/widgets/st.page_link). For an example of navigation that changes with the user, see [Create a dynamic navigation menu](/develop/tutorials/multipage/dynamic-navigation).
 
-If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page).
+If you need to programmatically switch pages, use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page). To switch pages when a user clicks a button, call `st.switch_page` from the button's `on_click` callback so that Streamlit goes straight to the new page. For a plain link to another page, use [`st.page_link`](/develop/api-reference/widgets/st.page_link). For more information, see [Switching pages from code](/develop/concepts/multipage-apps/page-and-navigation#switching-pages-from-code).
 
 Users can also navigate between pages using URLs as noted above. Each page must have a unique URL pathname. If multiple pages have the same URL pathname, Streamlit raises a `StreamlitAPIException`. Users can view a specific page by visiting the page's URL.
 
