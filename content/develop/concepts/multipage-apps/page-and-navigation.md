@@ -155,7 +155,9 @@ If you want more control over your navigation menu, you can hide the default nav
 
 ## Switching pages from code
 
-Use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page) to switch pages from your code. To switch pages when a user clicks a button, call `st.switch_page` from the button's `on_click` callback. Streamlit runs callbacks before it reruns your app, so it goes straight to the new page.
+If you only need a link to another page, use [`st.page_link`](/develop/api-reference/widgets/st.page_link) or the navigation menu. Both switch pages without running the current page again.
+
+Use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page) when you need a button or when the switch depends on your app's logic. To switch pages when a user clicks a button, call `st.switch_page` from the button's `on_click` callback. Streamlit runs callbacks before it reruns your app, so it goes straight to the new page.
 
 ```python
 import streamlit as st
@@ -171,8 +173,6 @@ If you call `st.switch_page` inside an `if st.button(...)` block instead, Stream
 if st.button("Go to page 2"):
     st.switch_page("page_2.py")
 ```
-
-If you only need a link to another page, use [`st.page_link`](/develop/api-reference/widgets/st.page_link) or the navigation menu instead.
 
 Call `st.switch_page` directly in your script when the switch depends on your app's logic and there is no callback to attach it to. For example, you can redirect users who haven't logged in to a login page:
 
