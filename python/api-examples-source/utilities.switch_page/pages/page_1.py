@@ -1,8 +1,5 @@
 import streamlit as st
 
-if st.button("Home"):
-    st.switch_page("your_app.py")
-if st.button("Page 1"):
-    st.switch_page("pages/page_1.py")
-if st.button("Page 2"):
-    st.switch_page("pages/page_2.py")
+st.button("Home", on_click=st.switch_page, args=("your_app.py",))
+st.button("Page 1", on_click=st.switch_page, args=("pages/page_1.py",))
+st.button("Page 2", on_click=st.switch_page, args=("pages/page_2.py",))

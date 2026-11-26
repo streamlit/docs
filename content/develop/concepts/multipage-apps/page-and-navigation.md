@@ -152,3 +152,31 @@ You can change what pages are available to a user by updating the list of pages 
 ### Building a custom navigation menu
 
 If you want more control over your navigation menu, you can hide the default navigation and build your own. You can hide the default navigation by including `position="hidden"` in your `st.navigation` command. If you only want to hide individual pages from the default navigation menu, use `st.Page(..., visibility="hidden")` instead. A user can't be routed to a page if the page isn't included in `st.navigation`. This applies to navigation by URL as well as commands like `st.switch_page` and `st.page_link`.
+
+## Switching pages from code
+
+If you only need a link to another page, use [`st.page_link`](/develop/api-reference/widgets/st.page_link) or the navigation menu. Both switch pages without running the current page again.
+
+Use [`st.switch_page`](/develop/api-reference/navigation/st.switch_page) when you need a button or when the switch depends on your app's logic. To switch pages when a user clicks a button, call `st.switch_page` from the button's `on_click` callback. Streamlit runs callbacks before it reruns your app, so it goes straight to the new page.
+
+```python
+import streamlit as st
+
+st.title("Page 1")
+st.button("Go to page 2", on_click=st.switch_page, args=("page_2.py",))
+```
+
+If you call `st.switch_page` inside an `if st.button(...)` block instead, Streamlit first reruns the current page up to that line and only then switches pages. This is slower, and the current page can briefly appear again before the new page loads.
+
+```python
+# Slower: the current page reruns before the switch happens
+if st.button("Go to page 2"):
+    st.switch_page("page_2.py")
+```
+
+Call `st.switch_page` directly in your script when the switch depends on your app's state rather than a user action. For example, you can redirect users who haven't logged in to a login page from a page file. Don't put this check in your entrypoint file, because the entrypoint runs before every page, including the login page:
+
+```python
+if not st.session_state.get("logged_in"):
+    st.switch_page("login.py")
+```
