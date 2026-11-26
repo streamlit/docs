@@ -174,7 +174,7 @@ if st.button("Go to page 2"):
     st.switch_page("page_2.py")
 ```
 
-Call `st.switch_page` directly in your script when the switch depends on your app's logic and there is no callback to attach it to. For example, you can redirect users who haven't logged in to a login page:
+Call `st.switch_page` directly in your script when the switch depends on your app's state rather than a user action. For example, you can redirect users who haven't logged in to a login page from a page file. Don't put this check in your entrypoint file, because the entrypoint runs before every page, including the login page:
 
 ```python
 if not st.session_state.get("logged_in"):
